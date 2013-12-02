@@ -1,24 +1,26 @@
 
-### Brownian Bridge transformation
-BBT <-
-function (x){
-
-(cumsum(x) - seq_along(x)/length(x) * sum(x))/sqrt(length(x) * 
-    var(x))
+### Bridge transformation
+BridgeT <-
+function (x, normalise=TRUE){
+  if(normalise){
+    (cumsum(x) - seq_along(x)/length(x) * sum(x))/sqrt(length(x) * var(x))
+  }else{
+    (cumsum(x) - seq_along(x)/length(x) * sum(x))
+  }
 }
 ### get break points form PvarBreakTest
 BreakPoints <-
 function (object) 
 object$BreakPoints
 
-### get the mean of p-variation acording of BBT(x), then H0 is TRUE (according to n).
+### get the mean of p-variation acording of BridgeT(x), then H0 is TRUE (according to n).
 getMean <-
 function (n, bMean = MeanCoef) 
 {
     unname(bMean[1] + bMean[2] * n^bMean[3])
 }
 
-### get the standart deviation of p-variation acording of BBT(x), then H0 is TRUE (according to n).
+### get the standart deviation of p-variation acording of BridgeT(x), then H0 is TRUE (according to n).
 getSd <-
 function (n, bSd = SdCoef) 
 {
@@ -27,7 +29,7 @@ function (n, bSd = SdCoef)
 
 ### Normalyse p-variation acording n.
 NormalisePvar <-
-function (x, n=length(x), bMean = MeanCoef, bSd = SdCoef) 
+function (x, n, bMean = MeanCoef, bSd = SdCoef) 
 {
     (x - getMean(n, bMean))/getSd(n, bSd)
 }
@@ -54,7 +56,7 @@ function (x, TimeLabel = as.vector(time(x)), alpha = 0.05, FullInfo = TRUE)
 	if( sd(x)==0 ){
 		y = x
 	}else{
-		y = BBT(x)
+		y = BridgeT(x)
     }
 	
 	PvarStat = pvar(y, p = 4, TimeLabel = TimeLabel, info = FullInfo)
@@ -136,8 +138,8 @@ function (n, stat, DF = PvarQuantileDF)
 
 
 plot.PvarBreakTest <-
-function (x, main1 = "Data", main2 = "Brownian Bridge transformation", 
-    ylab1 = x$dname, ylab2 = "BBT(" %.% x$dname %.% ")", sub2=NULL, 
+function (x, main1 = "Data", main2 = "Bridge transformation", 
+    ylab1 = x$dname, ylab2 = "BridgeT(" %.% x$dname %.% ")", sub2=NULL, 
 	col.PP = 3, cex.PP = 0.5, col.BP = 2, cex.BP = 1, cex.DP = 0.5, ...) 
 {
     Time = x$TimeLabel
@@ -177,7 +179,7 @@ print.PvarBreakTest <-
 function (x, ...) 
 {
     cat("       PvarBreakTest \n\n")
-    cat("H0: there is no structural break. \n")
+    cat("H0: no structural change \n")
     cat("Results: ")
     if (x$reject) {
         cat("H0 is rejected at the confidens level of " %.% formatC(head(x$alpha, 
@@ -188,7 +190,7 @@ function (x, ...)
             1)) %.% ".\n")
     }
     cat("Data: " %.% x$dname %.% ", n=" %.% length(x$x) %.% ".\n")
-    cat("Test's output: \n")
+    cat("The output of the test: \n")
     print(c(x$Stat, x$CriticalValue, x$alpha, x$p.value))
 }
 
@@ -203,7 +205,7 @@ print.summary.PvarBreakTest <-
 function (x, ...) 
 {
     cat("The summary of PvarBreakTest:\n")
-    cat("H0: there is no structural break. \n")
+    cat("H0: no structural change. \n")
     cat("Results: ")
     if (x$reject) {
         cat("H0 is rejected at the confidens level of " %.% formatC(head(x$alpha, 

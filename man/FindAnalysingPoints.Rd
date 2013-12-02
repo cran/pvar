@@ -21,7 +21,7 @@ FindAnalysingPointsOP(x)
 }
 \details{
 This function is applicable only for special form of sample. The requirements for the subset:
-1. it should be quasi-monotonic. i.e. min and max should be in the end points. 
+1. it should be pseudo-monotonic. i.e. min and max should be in the end points. 
 2. removed all monotonic points.
 
 }
@@ -35,7 +35,7 @@ This is inner function and should not be used by users. This function is loaded 
 
 
 \seealso{
-\code{\link{pvar}}, \code{\link{ChangePointsId}}, \code{\link{SplitByExtremum}}, \code{\link{pvarMon}}.
+\code{\link{pvar}}, \code{\link{ChangePointsId}}, \code{\link{SplitByExtremum}}, \code{\link{pvarPseudoMonotonic}}.
 }
 
 \examples{

@@ -1,25 +1,31 @@
 \name{pvar-package}
 \alias{pvar-package}
 
+
+\encoding{utf8} 
+ 
+
 \docType{package}
 \title{
-p-variation calculation and it's application
+p-variation calculation and application
 }
 \description{
-This is a package about the p-variation.
+This package deals with p-variation for the sequence of data values. It gives opportunity to calculate the p-variation -- this is the main purpose of this package.
+Moreover, it includes one example of practical application of the p-variation.
+
 }
 \details{
 \tabular{ll}{
 Package: \tab pvar\cr
 Type: \tab Package\cr
-Version: \tab 1.0.6\cr
-Stage: \tab development \cr
-Date: \tab 2012-09-28\cr
+Version: \tab 1.0.7\cr
+Date: \tab 2013-12-02\cr
 License: \tab GPL-2\cr
+Institution: \tab Vilnius University Faculty of Mathematics and Informatics \cr
 }
 
 This package is about p-variation. It deals only of p-variation of a finite sample data values.
-To make it clear lets star with the definitions. Originally p-variation is defined for a functions.
+To be precise, lets star with the definitions. Originally p-variation is defined for a functions.
 
 For a function \eqn{f:[0,1] \rightarrow R}{f:[0,1] -> R} and \eqn{0 < p < \infty}{0 < p <  \infty} 
 p-variation is defined as
@@ -30,7 +36,7 @@ p-variation is defined as
 	v_p(f) = sup { \sum |f(t_i) - f(t_{i-1})|^p : 0=t_0<t_1<\dots<t_m=1}
 }
 
-Analogically for a sequences of values \eqn{X_0, X_1,..., X_n}, the p-variation is defined as
+Analogically, for a sequences of values \eqn{X_0, X_1,..., X_n}, the p-variation is defined as
 \deqn{
 	v_p(\{X_i\}_{i=0}^n) = \max\left\{ \sum_{i=1}^k |X_{j_i}-X_{j_{i-1}}|^p: 0=j_0<j_1<\dots<j_k=n, \; k=1,2,...,n \right\} 
 }{
@@ -45,21 +51,8 @@ It calculates the p-variation and the partition.
 And the function \code{\link{PvarBreakTest}} is one of the examples of p-variation applications.
 It performs structural break test of vector \code{x} that exams whether there are multiple
 shifts in mean inside vector \code{x}.
-The test statistics distribution if drown from Monte-Carlo simulations of 140 millions iterations. 
-Therefore test's critical value and p-value are not exact, but onyly approximate .
-
  
 All other functions are loaded only for supporting and illustrating purposes.
-
-}
-
-\note{
-Up till now this package is still in the development stage. 
-The written functions are well tested and I have strong believe that this package is already  reliable.
-
-But the manual stays behind, because the lack of time and motivation.
-Sorry for poor English and lack of information. 
-I hope this imperfection will be eliminated in some future time.
 
 }
 
@@ -68,22 +61,30 @@ I hope this imperfection will be eliminated in some future time.
 \author{
 Author and Maintainer: Vygantas Butkus <Vygantas.Butkus@gmail.com>.
 
-Special thanks to Rimas Norvaisa - the superviser of my studies.
+Special thanks to Rimas Norvaiša the superviser of my studies.
 }
 \references{
-~~ Literature or other references for background information ~~
+[1] R. M. Dudley, R. Norvaisa. An Introduction to
+  p-variation and Young Integrals, Cambridge, Mass., 1998.
+  
+[2] R. M. Dudley, R. Norvaisa. Differentiability of 
+  Six Operators on Nonsmooth Functions and p-Variation, Springer Berlin Heidelberg, 
+  Print ISBN 978-3-540-65975-4, Lecture Notes in Mathematics Vol. 1703, 1999.
+  
+[3] R. Norvaisa, A. Rackauskas. Convergence in law of partial sum processes in p-variation norm. 
+   Lth. Math. J., 2008., Vol. 48, No. 2, 212-227.   
+   
+[4] J. Qian. The p-variation of Partial Sum Processes and the Empirical Process. 
+   The Annals of Probability, 1998, Vol. 26, No. 3, 1370-1383.
 }
-
-
 
 
 \seealso{
 The main function is \code{\link{pvar}} - it finds p-variation and the partition that maximises \code{\link{Sum_p}} function.
 
 Other important functions is \code{\link{PvarBreakTest}} it performs structural break test of vector \code{x}
-by calculating p-variations of \code{BBT(x)} (see \code{\link{BBT}}). 
-The critical value and the approximate  p-value of the test might by found by functions
-  \code{\link{PvarQuantile}} and  \code{\link{PvarPvalue}}.
+by calculating p-variations of \code{BridgeT(x)} (see \code{\link{BridgeT}}). 
+
 }
 
 \examples{
@@ -113,7 +114,7 @@ par(op)
 ######### PvarBreakTest ########
 x = c(rnorm(250,0),rnorm(250,0.3), rnorm(250,0), rnorm(250,0.3))
 
-# Run test
+# run test
 PVBT = PvarBreakTest(x); PVBT
 PVBTSummary = summary(PVBT); PVBTSummary
 
@@ -126,7 +127,7 @@ BreakPoints(PVBT)
 
 ##################################
 # the statistic maigth by find with pvar
-Y = BBT(x)
+Y = BridgeT(x)
 pv = pvar(Y, p = 4)
 pv
 

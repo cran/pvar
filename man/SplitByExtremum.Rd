@@ -8,7 +8,7 @@
 \title{Split vector according extremum (minimum and maximum).}
 
 \description{
-Splits vectors in quasi-monotonic parts.
+Splits vectors in pseudo-monotonic parts.
 }
 \usage{
 SplitByExtremum(x)
@@ -49,7 +49,7 @@ The index of the points where vector might be spitted.
 
 ##### randomised sample #####
 set.seed(16)
-x = BBT(rnorm(30))
+x = BridgeT(rnorm(30))
 
 # when there are no repeated walues, the results of two functionas are identical
 s1 = SplitByExtremum(x); s1

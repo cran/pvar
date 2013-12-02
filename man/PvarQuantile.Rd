@@ -14,9 +14,9 @@
   Quantiles and probabilities of p-variation
 }
 \description{
-  The distribution of p-variation of \code{BBT(x)} depends on \code{n=length(x)}. 
+  The distribution of p-variation of \code{BridgeT(x)} depends on \code{n=length(x)}. 
   This fact is important for getting appropriate quantiles (or p-value).
-  These functions allows easy way to deal with it. 
+  These functions helps to deal with it. 
 }
 \usage{
   PvarQuantile(n, prob = c(0.9, 0.95, 0.99), DF = PvarQuantileDF)
@@ -24,7 +24,7 @@
   
   getMean(n, bMean = MeanCoef) 
   getSd(n, bSd = SdCoef)
-  NormalisePvar(x, n=length(x), bMean = MeanCoef, bSd = SdCoef) 
+  NormalisePvar(x, n, bMean = MeanCoef, bSd = SdCoef) 
 }
 
 \arguments{
@@ -59,7 +59,7 @@ Those vectors are estimated with \code{nls} function form Monte-Carlo simulation
 }
 
 \value{
-Sunctions \code{PvarQuantile} and \code{PvarPvalue} returns a corresponding value quantile or the probability.
+Functions \code{PvarQuantile} and \code{PvarPvalue} returns a corresponding value quantile or the probability.
 
 Functions \code{getMean} and \code{getSd} returns a corresponding value of \code{mean} and \code{sd} statistics.
 Function \code{NormalisePvar} returns normalise values
@@ -83,8 +83,8 @@ CV
 1-PvarPvalue(n=1000, stat=CV)
 
 \dontrun{
-### this may take for a wile:
-x100 = replicate(2000, BBT(rnorm(100)), simplify=FALSE)
+# this may take for a while:
+x100 = replicate(2000, BridgeT(rnorm(100)), simplify=FALSE)
 pvar100 = sapply(x100, pvar, p=4, info=FALSE)
 
 # sample mean:

@@ -36,12 +36,12 @@ The function \code{PvarSubset} finds the p-variation of the subset of \code{pv$x
 The function \code{MergePvar} merges \code{pvar} objects. It does not do any recalculations, it just combine the information into one object.
 Therefore p-variation value form \code{MergePvar} function not necessary real p-variation. 
 The user must use this function with careful and some knowledge: by p-variation properties you can merge p-variation straightforward
-if joint point remains in the partition of joint set. The extremum points are such points for sure. See examples for illustration.
+if joint point remains in the partition of joint set. The extremum points are such points for sure. See examples and illustration.
 
 }
 
 \value{
-a object of the class \code{pvar}.
+An object of the class \code{pvar}.
 }
 
 
@@ -53,7 +53,7 @@ a object of the class \code{pvar}.
 
 #### pvSubset ####
 set.seed(12)
-x = BBT(rnorm(1000))
+x = BridgeT(rnorm(1000))
 
 pv = pvar(x, 2)	
 
@@ -69,7 +69,7 @@ par(op)
 
 #### MergePvar ####
 set.seed(13)
-x = BBT(rnorm(1000))
+x = BridgeT(rnorm(1000))
 S = Split_MinMax(x)
 
 pv = pvar(x, 2)	

@@ -13,9 +13,9 @@ Sum_p(x, p, lag = 1)
 }
 
 \arguments{
-  \item{x}{A numeric vector.}
-  \item{p}{A number indicating the power in summing function.}
-  \item{lag}{A number, indicating the lag.}
+  \item{x}{a numeric vector.}
+  \item{p}{a number indicating the power in summing function.}
+  \item{lag}{a number, indicating the lag.}
 }
 \details{
 It is the the function that should be maximised in p-variation calculations.

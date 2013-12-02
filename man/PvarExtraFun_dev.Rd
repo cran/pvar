@@ -47,7 +47,7 @@ a object of the class \code{pvar}.
 
 #### in this case it is OK:
 	set.seed(20)
-	XX = BBT(rnorm(1000))
+	XX = BridgeT(rnorm(1000))
 	pv = pvar(XX, p = 2)
 	pv1 = pvar(XX[1:round(length(XX)/2)], p = 2)
 	pv2 = pvar(XX[round(length(XX)/2):length(XX)], p = 2)
@@ -65,7 +65,7 @@ a object of the class \code{pvar}.
 	
 #### in this case it is NOT OK:
 	set.seed(30)
-	XX = BBT(rnorm(1000))
+	XX = BridgeT(rnorm(1000))
 	pv = pvar(XX, p = 2)
 	pv1 = pvar(XX[1:round(length(XX)/2)], p = 2)
 	pv2 = pvar(XX[round(length(XX)/2):length(XX)], p = 2)

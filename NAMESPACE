@@ -1,7 +1,5 @@
-## exportPattern("^[[:alpha:]]+")
 
-
-export(pvar, Sum_p, pvarMon, Split_MinMax, Split_MinMax_req, ChangePointsId, rbridge, rwiener, MovingSum, "%.%", 
+export(pvar, Sum_p, pvarPseudoMonotonic, Split_MinMax, Split_MinMax_req, ChangePointsId, rbridge, rwiener, MovingSum, "%.%", 
 	FindAnalysingPoints, FindAnalysingPointsOP, DropMidAllB, DropMidAll, SplitByExtremum)
 
 export(MergePvar, PvarSubset, Add2Pvar, AddPvar)	
@@ -15,7 +13,7 @@ S3method(print, summary.pvar)
 S3method(Ops, pvar)
 ## S3method(sum, pvar)
 
-export(PvarBreakTest, BBT, BreakPoints,PvarQuantile, PvarPvalue, getMean, getSd, NormalisePvar)
+export(PvarBreakTest, BridgeT, BreakPoints,PvarQuantile, PvarPvalue, getMean, getSd, NormalisePvar)
 
 S3method(print, PvarBreakTest)
 S3method(plot, PvarBreakTest)

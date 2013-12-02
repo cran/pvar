@@ -53,7 +53,7 @@ For a function \eqn{f:[0,1] \rightarrow R}{f:[0,1] -> R} and \eqn{0 < p < \infty
 	v_p(f) = sup { \sum |f(t_i) - f(t_{i-1})|^p : 0=t_0<t_1<\dots<t_m=1}
 }
 
-Analogically for a sequences of values \eqn{X_0, X_1,..., X_n}, the p-variation is defined as
+Analogically, for a sequences of values \eqn{X_0, X_1,..., X_n}, the p-variation is defined as
 \deqn{
 	v_p(\{X_i\}_{i=0}^n) = \max\left\{ \sum_{i=1}^k |X_{j_i}-X_{j_{i-1}}|^p: 0=j_0<j_1<\dots<j_k=n, \; k=1,2,...,n \right\} 
 }{
@@ -66,10 +66,16 @@ The functions\code{pvar} calculates p-variation for a sequence of values \eqn{X_
 that are written in the \code{numeric} vector \code{x}. 
 
 This function also finds extra information that concerns the calculation of the p-variation. 
-For example it also indicates the partition (\eqn{j_0, j_1,\dots, j_k} that achieves the maximum.
+For example it also indicates the partition (\eqn{j_0, j_1,\dots, j_k}) that achieves the maximum.
+
+The main principle of the algorithm: \code{pvar} maximises function \code{\link{Sum_p}}. 
+Firstly, it removes all monotonic points with function \code{\link{ChangePointsId}}.
+After that, some points are drop out by function \code{\link{DropMidAll}}.
+Moreover, vector is spited by \code{\link{SplitByExtremum}} and each part is calculated independently by \code{\link{pvarPseudoMonotonic}}.
+
 
 The variable \code{sizeN} is inner parameter that may influence the speed of calculation. Before the real maximisation
-of the function \eqn{|X_{j_i}-X_{j_{i-1}}|^p} starts some of the points may be drooped out by analysing small intervals
+of the function \eqn{|X_{j_i}-X_{j_{i-1}}|^p} starts, some of the points may be drooped out by analysing small intervals
 (see  \code{\link{DropMidAll}}). 
 The \code{sizeN} defines the length of 'small' interval. For randomised samples it is recommended to set \code{sizeN=7}.
 But if \code{x} has special form the optimal \code{sizeN} value might be different.
@@ -101,8 +107,21 @@ But if \code{x} has special form the optimal \code{sizeN} value might be differe
 }
 
 \references{
-~~~ Some articles about p-variation.~~~
+[1] R. M. Dudley, R. Norvaisa. An Introduction to
+  p-variation and Young Integrals, Cambridge, Mass., 1998.
+  
+[2] R. M. Dudley, R. Norvaisa. Differentiability of 
+  Six Operators on Nonsmooth Functions and p-Variation, Springer Berlin Heidelberg, 
+  Print ISBN 978-3-540-65975-4, Lecture Notes in Mathematics Vol. 1703, 1999.
+  
+[3] R. Norvaisa, A. Rackauskas. Convergence in law of partial sum processes in p-variation norm. 
+   Lth. Math. J., 2008., Vol. 48, No. 2, 212-227.   
+   
+[4] J. Qian. The p-variation of Partial Sum Processes and the Empirical Process. 
+   The Annals of Probability, 1998, Vol. 26, No. 3, 1370-1383.
 }
+
+
 \author{
 Vygantas Butkus
 }
@@ -123,11 +142,6 @@ Vygantas Butkus
 
 
 \seealso{
- \code{pvar} maximises function \code{\link{Sum_p}}. 
- Firstly, it removes all monotonic points with function \code{\link{ChangePointsId}}.
- After that, some points are drop out by function \code{\link{DropMidAll}}.
- Moreover, vector is spited by \code{\link{SplitByExtremum}} and each part is calculated independently by \code{\link{pvarMon}}.
-
  In some points \code{pvar} objects migth be merged with function \code{\link{MergePvar}}.
 
  One of the p-variations application is realized in \code{\link{PvarBreakTest}} function. 

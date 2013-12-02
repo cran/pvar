@@ -16,7 +16,7 @@ x \%.\% y
 
 }
 \details{
-The same result may be achieved with \code{paste}, but this function is more user friendly then you need to add to strings.
+The same result may be achieved with \code{paste}, but in some circumstance this function is more user friendly.
 }
 \value{
 A character string of the concatenated values.

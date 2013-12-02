@@ -1,13 +1,14 @@
 Package: pvar
 Type: Package
-Title: p-variation
-Version: 1.0.6
-Date: 2012-08-25
+Title: p-variation, calculation and application
+Version: 1.0.9
+Date: 2013-12-02
 LazyData: yes
 Author: Vygantas Butkus
 Maintainer: Vygantas Butkus <Vygantas.Butkus@gmail.com>
-Description: The calculation of p-variation. Now it is in testing.
+Description: The calculation of p-variation of the finite sample data
 License: GPL-2
-Packaged: 2012-09-28 16:32:46 UTC; Vygantas
+Packaged: 2013-12-02 06:06:54 UTC; vbutkus
+NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2012-09-28 17:06:41
+Date/Publication: 2013-12-11 14:55:53

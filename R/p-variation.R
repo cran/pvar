@@ -39,7 +39,12 @@ function (x, p, TimeLabel=as.vector(time(x)), info = TRUE, sizeN = 7)
 
 	### Check posible errors
 	
-
+	if (length(p) != 1) {
+		if(length(p)<1) stop("The length of 'p' is zero.")
+		warning("The 'p' must be a scalar. Only first element is used.")
+		p = p[1]
+    }	
+	
     if (p <= 0) {
         stop("'p' must be positive.")
     }
@@ -140,10 +145,10 @@ function (x, p, TimeLabel=as.vector(time(x)), info = TRUE, sizeN = 7)
         xx = x[MP]
     }
     else {
-        xx = DropMidAll(x[MP], p, sizeN)		# the number "7" mus be the same as in function 'pvarMon'
+        xx = DropMidAll(x[MP], p, sizeN)		# the number "7" mus be the same as in function 'pvarPseudoMonotonic'
     }
 	
-	### Split vector into quasi-monotonic segments
+	### Split vector into Pseudo-Monotonic segments
     Len = length(xx)
     # s = Split_MinMax_req(xx, add = 1)
     s = SplitByExtremum(xx)
@@ -153,10 +158,10 @@ function (x, p, TimeLabel=as.vector(time(x)), info = TRUE, sizeN = 7)
 	
 	### calculate p-var for each segment
     for (i in 2:(Len_s)) {
-        pvarM = pvarMon(x = xx, p = p, a = s[i - 1], b = s[i], 
+        pvarQ = pvarPseudoMonotonic(x = xx, p = p, a = s[i - 1], b = s[i], 
             sizeN = sizeN)
-        ChB[[i]] = pvarM$ChB
-        pvarVec[[i]] = pvarM$pvarVec
+        ChB[[i]] = pvarQ$ChB
+        pvarVec[[i]] = pvarQ$pvarVec
     }
     ChB = unlist(ChB)
     pvarVec = unlist(pvarVec)
@@ -223,7 +228,7 @@ function (x, add = 1)
         for (i in 1:(Len - 1)) {
             resList[[i]] = Recall(x[(s[i]:s[i + 1])], s[i])
         }
-        res = sort(unique(do.call(c, resList))) + add - 1
+        res = sort(unique(unlist(resList))) + add - 1
         return(res)
     }
     else {
@@ -269,11 +274,6 @@ SplitByExtremumFromStart <- function(x, a=1, b=length(x), aMin = TRUE){
 }
 
 
-
-### silpna vieta - tai monotoniskumo intervalai. 
-### !!!!!!!!!!! Niekas netaisyta, nes p-variacijos ksiaciavime monotoniskumo intervalai yra pasalinmi.
-# x = c(0,0,0)
-# x = c(0,0)
 SplitByExtremum <- function(x){	
 	if(length(x)==0)
 		return(vector("numeric"))
@@ -288,14 +288,6 @@ SplitByExtremum <- function(x){
 	
 	FunctInd = c(NA, rep(TRUE,length(MinID)), rep(FALSE,length(MaxID)), NA)	# jei TRUE, tai minimumo taskas
 	FunctInd = FunctInd[!SplitPointsDup][SplitPointsOrder]
-	
-	### ismetam monotoniskumo intervalus
-	# DropMon = diff(FunctInd)==0
-	# DropMon[is.na(DropMon)] = FALSE
-	# DropMon = append(DropMon, FALSE)
-	# SplitPoints = SplitPoints[!DropMon]
-	# FunctInd = FunctInd[!DropMon]
-	
 	
 	if(length(SplitPoints)==1){
 		res = list(1)
@@ -499,9 +491,8 @@ function (x, p, lag = 1)
     cumsum((abs(diff(x, lag)))^p)
 }
 
-
-### the function of p-variation, but only to quasy monotonic functions. 
-pvarMon <-
+### the function of p-variation, but only to pseudo-monotonic quasy monotonic functions.  
+pvarPseudoMonotonic <-
 function (x, p, a = 1, b = length(x), sizeN = 1) 
 {
 	### if the is little points, we now that they all menaingfull:
@@ -666,13 +657,13 @@ function (x, p, dn)
     return(list(DropB = DropB, new = new))
 }
 
-### finds analysing poits that maigth me meaningul
+### finds analysing poits that maigth be meaningul
 FindAnalysingPoints <-
 function (x) 
 {
     Len = length(x)
-    if (!all(c(which.max(x), which.min(x)) %in% c(1, Len))) {
-        stop("Error(003),FindAnalysingPoints: The vector is not psiaudo-monotonic.")
+    if (!all(range(x)==sort(x[c(1,Len)]))) {
+        stop("Error(003),FindAnalysingPoints: The vector is not Pseudo-Monotonic.")
     }
     if (x[1] < x[Len]) {
         minmaxf = cummax(x)
@@ -689,8 +680,8 @@ FindAnalysingPointsOP <-
 function (x) 
 {
     Len = length(x)
-    if (!all(c(which.max(x), which.min(x)) %in% c(1, Len))) {
-        stop("Error(003),FindAnalysingPointsOP: The vector is not psiaudo-monotonic.")
+	if (!all(range(x)==sort(x[c(1,Len)]))) {
+        stop("Error(003),FindAnalysingPointsOP: The vector is not Pseudo-Monotonic.")
     }
     if (x[1] < x[Len]) {
         minmaxf = rev(cummin(rev(x)))
@@ -703,7 +694,7 @@ function (x)
 }
 
 #######################################################################################
-######################## NEW functions: pvar optrations ###############################
+################# NEW functions: pvar optrations (under development) ##################
 #######################################################################################
 
 	Take1Variable <- function(Li, variable) Li[[variable]] 

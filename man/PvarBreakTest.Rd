@@ -18,8 +18,8 @@ PvarBreakTest(x, TimeLabel = as.vector(time(x)), alpha = 0.05, FullInfo = TRUE)
 
 \method{summary}{PvarBreakTest}(object, ...)
 
-\method{plot}{PvarBreakTest}(x, main1 = "Data", main2 = "Brownian Bridge transformation", 
-    ylab1 = x$dname, ylab2 = "BBT(" \%.\% x$dname \%.\% ")", sub2=NULL, 
+\method{plot}{PvarBreakTest}(x, main1 = "Data", main2 = "Bridge transformation", 
+    ylab1 = x$dname, ylab2 = "BridgeT(" \%.\% x$dname \%.\% ")", sub2=NULL, 
 	col.PP = 3, cex.PP = 0.5, col.BP = 2, cex.BP = 1, cex.DP = 0.5, ...)
 	
 BreakPoints(object) 	
@@ -33,10 +33,10 @@ BreakPoints(object)
 		that saves all useful information.	Otherwise only the statistics will by returned. }
   \item{object}{the object of the class \code{PvarBreakTest}.}
   \item{main1}{the \code{main} parameter of the data graph.}
-  \item{main2}{the \code{main} parameter of the Brownian Bridge transformation graph.}
+  \item{main2}{the \code{main} parameter of the Bridge transformation graph.}
   \item{ylab1}{the \code{ylab} parameter of the data graph.}
-  \item{ylab2}{the \code{ylab} parameter of the Brownian Bridge transformation graph.}
-  \item{sub2}{the \code{sub} parameter of the Brownian Bridge transformation graph. By default it reports the number of break points.}
+  \item{ylab2}{the \code{ylab} parameter of the Bridge transformation graph.}
+  \item{sub2}{the \code{sub} parameter of the Bridge transformation graph. By default it reports the number of break points.}
   \item{cex.DP}{the cex of data points.}
   \item{col.PP}{the color of partition points.}
   \item{cex.PP}{the cex of partition points.}
@@ -47,13 +47,13 @@ BreakPoints(object)
 
 \details{
 Lets \code{x} be a data that should be tested of structial breaks. 
-Then the p-variation of the \code{BBT(x)} with \code{p=4} is the test's statistics.
+Then the p-variation of the \code{BridgeT(x)} with \code{p=4} is the test's statistics.
 
 The quantiles of H0 distribution is based on Monte-Carlo simulation of 140 millions iterations. 
-If is reliable then \code{length(x)} is between 100 and 10000.
+The test is reliable then \code{length(x)} is between 100 and 10000.
 The test might work with other lengths too, but it is not tested well.
 
-The test will not compute then \code{length(x)<20}
+The test will not compute then \code{length(x)<20}.
 
 }
 
@@ -61,14 +61,14 @@ The test will not compute then \code{length(x)<20}
  If \code{FullInfo=TRUE} then function returns an object of the class \code{PvarBreakTest}. 
  It is the \code{list} that contains:
  \item{Stat}{a value of statistics (p-variation of transformed data).}
- \item{CriticalValue}{the critical value of the test according significant level.} 
+ \item{CriticalValue}{the critical value of the test according to significant level.} 
  \item{alpha}{the significant level.} 
  \item{p.value}{approximate p-value.} 
  \item{reject}{\code{logical}. If \code{TRUE}, the H0 was rejected.} 
  \item{dname}{the name of data vector.} 
  \item{p}{the power in p-variation calculus. The test performs only with the \code{p=4}.} 
  \item{x}{a vector of original data.}
- \item{y}{a vector of transformed data (\code{y=BBT(x)}).}
+ \item{y}{a vector of transformed data (\code{y=BridgeT(x)}).}
  \item{Timelabel}{time label of \code{x}. Used only for ploting.}
  \item{BreakPoints}{the indexes of break points suggestion.}
  \item{Partition}{a vector of indexes that indicates the partition of \code{y} that achieves the p-variation maximum.}
@@ -85,15 +85,17 @@ The test will not compute then \code{length(x)<20}
 }
 
 \references{
-~~~ Some articles about p-variation.~~~
+[1] R. Norvaisa, A. Rackauskas. Convergence in law of partial sum processes in p-variation norm. 
+   Lth. Math. J., 2008., Vol. 48, No. 2, 212-227.   
 }
+
 \author{
 Vygantas Butkus
 }
 
 
 \seealso{
-  Tests statistics is  \code{\link{pvar}} of the data \code{BBT(x)}(see  \code{\link{BBT}}) with (p=4).
+  Tests statistics is  \code{\link{pvar}} of the data \code{BridgeT(x)}(see  \code{\link{BridgeT}}) with (p=4).
   
   The critical value and the approximate  p-value of the test might by found by functions
   \code{\link{PvarQuantile}} and  \code{\link{PvarPvalue}}.	
@@ -107,7 +109,7 @@ set.seed(1)
 # x contains 4 blocks with diferent mean.
 x = c(rnorm(250,0),rnorm(250,0.3), rnorm(250,0), rnorm(250,0.3))
 
-# Run test
+# run test
 PVBT = PvarBreakTest(x); PVBT
 PVBTSummary = summary(PVBT); PVBTSummary
 
@@ -122,7 +124,7 @@ PvarBreakTest(x, FullInfo = FALSE)
 
 ##################################
 # the statistic maigth by find with pvar
-Y = BBT(x)
+Y = BridgeT(x)
 pv = pvar(Y, p = 4)
 pv
 
