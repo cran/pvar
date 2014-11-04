@@ -17,5 +17,6 @@ is one of the example of $p$-variation use in statistics.
 In any question or remarks please don't hesitate to contact me by Vygantas.Butkus@gmail.com
 
 
-Best regards,<br>
+Best regards,
+
 Vygantas Butkus

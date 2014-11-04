@@ -3,7 +3,7 @@
 context("pvar")
 
 test_that("Basic", {
-  
+  set.seed(12345)
   expect_that(PV <- pvar(rnorm(10), 2), not(throws_error()))
   expect_that(summary(PV), not(throws_error()))
   expect_that(plot(PV), not(throws_error()))
@@ -28,6 +28,7 @@ test_that("Basic", {
 })
 
 test_that("Exeptions", {
+  set.seed(12345)
   expect_that( pvar(rnorm(10), 0),  throws_error())
   expect_that( pvar(vector("numeric", 0), 2),  throws_error())
   expect_that( pvar(c(NA,0), 2),  gives_warning())
@@ -35,6 +36,7 @@ test_that("Exeptions", {
 
 
 test_that("Compare with old version", {
+  set.seed(12345)
   f <- system.file("extdata", "caselist_oldversion.RData", package="pvar")
   load(f)
   for(i in seq_along(caselist)){
@@ -50,6 +52,7 @@ test_that("Compare with old version", {
 })
 
 test_that("Compare with curent version", {
+  set.seed(12345)
   f <- system.file("extdata", "caselist.RData", package="pvar")
   load(f)
   for(i in seq_along(caselist)){
@@ -59,6 +62,7 @@ test_that("Compare with curent version", {
 })
 
 test_that("Test by LSI, n , generations", {
+  set.seed(12345)
   
   test_pvar <- function(x, p){
     AnsList = mapply(FUN=pvar, LSI = seq(from = 1, to = length(x)+1, by=2), MoreArgs=list(x=x, p=p), SIMPLIFY=FALSE)
@@ -81,6 +85,7 @@ test_that("Test by LSI, n , generations", {
   
 
 test_that("AddPvar:random", {
+  set.seed(12345)
   test_AddPvar <- function(x, p){
     N = length(x)
     n1 = sample(N, 1);
@@ -106,6 +111,7 @@ test_that("AddPvar:random", {
 
 
 test_that("AddPvar:selected", {
+  set.seed(12345)
   test_AddPvar <- function(x1, x2){
     sunf <- function(x1, x2, p){
       PV1 = pvar(x1, p); 

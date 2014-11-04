@@ -16,7 +16,7 @@ test_that("pvarC:Exeptions", {
 })
 
 test_that("AddPvarC:random", {
-  
+  set.seed(12345)
   test_AddPvar <- function(x, p){
     N = length(x)
     n1 = sample(N, 1);
@@ -39,6 +39,7 @@ test_that("ChangePoints:Exeptions", {
 
 
 test_that("ChangePoints:random", {
+  set.seed(12345)
   test_ChangePoints <- function(x){
     SafeNearComparison(ChangePointsId_R(x), ChangePoints(x))
   }
@@ -49,7 +50,7 @@ test_that("ChangePoints:random", {
 })
 
 test_that("ChangePoints:special", {
-
+  set.seed(12345)
   expect_that(ChangePoints(c(0)), equals(1))
   expect_that(ChangePoints(c(0, 0)), equals(c(1,2)))
   expect_that(ChangePoints(c(0, 0, 0)), equals(c(1,3)))

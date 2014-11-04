@@ -89,7 +89,7 @@ summary(pv)
 @
 
 
-More over, the data and supreme partition could be illustrated with \emph{plot} function
+Moreover, the data and supreme partition could be illustrated with \emph{plot} function
 <<pvar_plot>>=
 plot(pv)
 @

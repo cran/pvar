@@ -1,7 +1,7 @@
 context("PvarBreakTest")
 
 test_that("Basic", {
-  
+  set.seed(12345)
   N = 1000
   x = rnorm(N) + rep(0:1, each=N/2)
   Test = PvarBreakTest(x)

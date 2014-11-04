@@ -2,6 +2,7 @@
 context("Inner C functions")
 
 test_that("prepare_prt:random", {
+  set.seed(12345)
   test_prepare_prt <- function(x, p){
     LS = prepare_prt(x, p)
     idR = ChangePointsId_R(x)
@@ -22,6 +23,7 @@ test_that("prepare_prt:random", {
 
 
 test_that("CheckSmallIntervals:random", {
+  set.seed(12345)
   test_CheckSmallIntervals <- function(x, p, d){
     all(CheckSmallIntervals(x, p, d)==CheckSmallIntervals_R(x, p, d));
   }
