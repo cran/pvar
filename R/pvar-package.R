@@ -9,8 +9,8 @@
 #' \tabular{ll}{
 #' Package: \tab pvar\cr
 #' Type: \tab Package\cr
-#' Version: \tab 2.1\cr
-#' Date: \tab 2014-11-04\cr
+#' Version: \tab 2.2\cr
+#' Date: \tab 2015-01-09\cr
 #' License: \tab GPL-2\cr
 #' Institution: \tab Vilnius University Faculty of Mathematics and Informatics \cr
 #' }

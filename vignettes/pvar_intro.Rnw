@@ -1,7 +1,7 @@
 \documentclass{article}
 
 %\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{The breath intro into the package}
+%\VignetteIndexEntry{The brief intro into the package}
 %\VignetteDepends{}
 %\VignetteKeywords{string, misc}
 %\VignettePackage{pvar}
