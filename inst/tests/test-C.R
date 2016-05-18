@@ -4,7 +4,6 @@ context("Front C functions")
 
 
 test_that("pvarC:Exeptions", {
-  expect_that( pvarC(0, 2, 1),  not(throws_error())) # OK
   expect_that( pvarC(0, 1, 1),  throws_error())
   expect_that( pvarC(0, 2, 0),  throws_error())
   expect_that( pvarC(0, 2, -1),  throws_error())
@@ -32,7 +31,7 @@ test_that("AddPvarC:random", {
 })
 
 test_that("ChangePoints:Exeptions", {
-  expect_that( ChangePoints(1),  not(throws_error())) # OK
+  expect_that( ChangePoints(1),  equals(1)) # OK
   expect_that( ChangePoints(vector("numeric", 0)),  throws_error())
   expect_that( ChangePoints(NA),  throws_error())
 })

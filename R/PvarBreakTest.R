@@ -133,7 +133,7 @@ plot.PvarBreakTest <- function(x, main1 = "Data", main2 = "Bridge transformation
   for (i in 2:length(BP)) {
     Eseg <- mean(x$x[BP[i - 1]:BP[i]])
     colseg <- i%%2 + 2
-    segments(x0 = Time[BP[i - 1]], y0 = Eseg, x1 = Time[BP[i]], y1 = Eseg, lwd = 3, col = colseg)
+    graphics::segments(x0 = Time[BP[i - 1]], y0 = Eseg, x1 = Time[BP[i]], y1 = Eseg, lwd = 3, col = colseg)
   }
   
   if (is.null(sub2)) {
@@ -144,7 +144,7 @@ plot.PvarBreakTest <- function(x, main1 = "Data", main2 = "Bridge transformation
         sub2 <- "Program suggests " %.% length(x$BreakPoints) %.% " break points."
       }
     } else {
-      sub2 <- "Program didn't find structural breaks at the confidence level of " %.% formatC(head(x$alpha, 1)) %.% "."
+      sub2 <- "Program didn't find structural breaks at the confidence level of " %.% formatC(utils::head(x$alpha, 1)) %.% "."
     }
   }
   
@@ -170,9 +170,9 @@ print.PvarBreakTest <- function(x, ...) {
   cat("H0: no structural change \n")
   cat("Results: ")
   if (x$reject) {
-    cat("H0 is rejected at the confidence level of " %.% formatC(head(x$alpha, 1)) %.% ".\n")
+    cat("H0 is rejected at the confidence level of " %.% formatC(utils::head(x$alpha, 1)) %.% ".\n")
   } else {
-    cat("H0 is accepted at the confidence level of " %.% formatC(head(x$alpha, 1)) %.% ".\n")
+    cat("H0 is accepted at the confidence level of " %.% formatC(utils::head(x$alpha, 1)) %.% ".\n")
   }
   cat("Data: " %.% x$dname %.% ", n=" %.% length(x$x) %.% ".\n")
   cat("The output of the test: \n")
@@ -186,20 +186,20 @@ print.summary.PvarBreakTest <- function(x, ...) {
   cat("H0: no structural change. \n")
   cat("Results: ")
   if (x$reject) {
-    cat("H0 is rejected at the confidence level of " %.% formatC(head(x$alpha, 1)) %.% ".\n")
+    cat("H0 is rejected at the confidence level of " %.% formatC(utils::head(x$alpha, 1)) %.% ".\n")
   } else {
-    cat("H0 is accepted at the confidence level of " %.% formatC(head(x$alpha, 1)) %.% ".\n")
+    cat("H0 is accepted at the confidence level of " %.% formatC(utils::head(x$alpha, 1)) %.% ".\n")
   }
   if (x$reject) {
     if (length(x$BreakPoints) > 6) {
-      cat("Suggesting " %.% length(x$BreakPoints) %.% " break points: " %.% paste(formatC(head(x$BreakPoints, 6)), collapse = ", ") %.% 
+      cat("Suggesting " %.% length(x$BreakPoints) %.% " break points: " %.% paste(formatC(utils::head(x$BreakPoints, 6)), collapse = ", ") %.% 
         ", ...\n")
     } else {
       if (length(x$BreakPoints) == 1) {
-        cat("Suggesting " %.% length(x$BreakPoints) %.% " break point: " %.% paste(formatC(head(x$BreakPoints, 6)), collapse = ", ") %.% 
+        cat("Suggesting " %.% length(x$BreakPoints) %.% " break point: " %.% paste(formatC(utils::head(x$BreakPoints, 6)), collapse = ", ") %.% 
           ".\n")
       } else {
-        cat("Suggesting " %.% length(x$BreakPoints) %.% " break points: " %.% paste(formatC(head(x$BreakPoints, 6)), collapse = ", ") %.% 
+        cat("Suggesting " %.% length(x$BreakPoints) %.% " break points: " %.% paste(formatC(utils::head(x$BreakPoints, 6)), collapse = ", ") %.% 
           ".\n")
       }
     }
@@ -210,9 +210,9 @@ print.summary.PvarBreakTest <- function(x, ...) {
   cat("p-avriation calculation info:\n")
   print(unlist(x$info)[-length(x$info)])
   if (length(x$x) > 6) {
-    cat("\nData vector (n=" %.% length(x$x) %.% "): " %.% paste(formatC(head(x$x, 6)), collapse = ", ") %.% ", ...\n")
+    cat("\nData vector (n=" %.% length(x$x) %.% "): " %.% paste(formatC(utils::head(x$x, 6)), collapse = ", ") %.% ", ...\n")
   } else {
-    cat("\nData vector (n=" %.% length(x$x) %.% "): " %.% paste(formatC(head(x$x, 6)), collapse = ", ") %.% ".\n")
+    cat("\nData vector (n=" %.% length(x$x) %.% "): " %.% paste(formatC(utils::head(x$x, 6)), collapse = ", ") %.% ".\n")
   }
 }
 

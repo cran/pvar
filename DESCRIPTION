@@ -1,18 +1,18 @@
 Package: pvar
-Type: Package
-Title: Calculation and Application of p-variation
-Version: 2.2
-Date: 2015-01-09
+Version: 2.2.2
+Title: Calculation and Application of p-Variation
+Date: 2016-05-17
 Author: Vygantas Butkus
 Maintainer: Vygantas Butkus <Vygantas.Butkus@gmail.com>
-Description: The calculation of p-variation of the finite sample data
+Description: The calculation of p-variation of the finite sample data.
 LazyData: yes
 Imports: Rcpp (>= 0.11.1)
 LinkingTo: Rcpp
-Suggests: e1071, testthat, knitr, formatR
+Suggests: e1071, testthat, knitr, formatR,
 VignetteBuilder: knitr
 License: GPL-2
-Packaged: 2015-01-09 05:53:11 UTC; vygantas
+RoxygenNote: 5.0.1
 NeedsCompilation: yes
+Packaged: 2016-05-17 18:48:31 UTC; vygantas
 Repository: CRAN
-Date/Publication: 2015-01-09 08:01:32
+Date/Publication: 2016-05-18 01:29:16

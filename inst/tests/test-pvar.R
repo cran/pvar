@@ -4,14 +4,14 @@ context("pvar")
 
 test_that("Basic", {
   set.seed(12345)
-  expect_that(PV <- pvar(rnorm(10), 2), not(throws_error()))
-  expect_that(summary(PV), not(throws_error()))
-  expect_that(plot(PV), not(throws_error()))
+  PV <- pvar(rnorm(10), 2)
+  expect_that(PV, is_a('pvar'))
+  expect_that(summary(PV), is_a('summary.pvar'))
+  expect_that(plot(PV), is_null())
  
   expect_that( pvar(rnorm(10), 0.5), is_a("pvar"))
   expect_that( pvar(rnorm(10), 1), is_a("pvar"))
   expect_that( pvar(rnorm(10), 2), is_a("pvar"))
-  expect_that( pvar(rnorm(10), 2), has_names())
   expect_that( pvar(rnorm(10), 2)$value, is_more_than(0))  
   
   expect_that( pvar(0, 2)$value,  equals(c("p-variation"=0)))

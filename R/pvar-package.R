@@ -10,7 +10,7 @@
 #' Package: \tab pvar\cr
 #' Type: \tab Package\cr
 #' Version: \tab 2.2\cr
-#' Date: \tab 2015-01-09\cr
+#' Date: \tab 2016-05-17\cr
 #' License: \tab GPL-2\cr
 #' Institution: \tab Vilnius University Faculty of Mathematics and Informatics \cr
 #' }
@@ -46,17 +46,17 @@
 #' All other functions are loaded only for supporting and illustrating purposes.
 #' @author Author and Maintainer: Vygantas Butkus <Vygantas.Butkus@@gmail.com>.
 #' 
-#' Special thanks to Rimas Norvaiša the supervisor of my studies.
+#' Special thanks to Rimas Norvaisa the supervisor of my studies.
 #' 
 #' @references
-#' [1] R. M. Dudley, R. Norvaiša. An Introduction to
+#' [1] R. M. Dudley, R. Norvaisa. An Introduction to
 #' p-variation and Young Integrals, Cambridge, Mass., 1998.
 #' 
-#' [2] R. M. Dudley, R. Norvaiša. Differentiability of 
+#' [2] R. M. Dudley, R. Norvaisa. Differentiability of 
 #' Six Operators on Nonsmooth Functions and p-Variation, Springer Berlin Heidelberg, 
 #' Print ISBN 978-3-540-65975-4, Lecture Notes in Mathematics Vol. 1703, 1999.
 #' 
-#' [3] R. Norvaiša, A. Račkauskas. Convergence in law of partial sum processes in p-variation norm. 
+#' [3] R. Norvaisa, A. Rackauskas. Convergence in law of partial sum processes in p-variation norm. 
 #' Lth. Math. J., 2008., Vol. 48, No. 2, 212-227.   
 #' 
 #' [4] J. Qian. The p-variation of Partial Sum Processes and the Empirical Process. 
@@ -70,6 +70,8 @@
 #'
 #' @encoding utf8 
 #' @import Rcpp
+#' @importFrom graphics plot points par
+#' @importFrom stats filter rnorm time ts sd var
 #' @docType package
 #' @name pvar-package
 #' @useDynLib pvar

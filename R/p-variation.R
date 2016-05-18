@@ -189,16 +189,16 @@ print.summary.pvar <- function(x, ...) {
   cat("Data: " %.% x$dname %.% ", n = " %.% (length(x$x) - 1) %.% " (+1)\n")
   
   if (length(x$x) > 6) {
-    cat("\nData vector (n=" %.% length(x$x) %.% "): " %.% paste(formatC(head(x$x, 6)), collapse = ", ") %.% ", ...\n")
+    cat("\nData vector (n=" %.% length(x$x) %.% "): " %.% paste(formatC(utils::head(x$x, 6)), collapse = ", ") %.% ", ...\n")
   } else {
-    cat("\nData vector (n=" %.% length(x$x) %.% "): " %.% paste(formatC(head(x$x, 6)), collapse = ", ") %.% ".\n")
+    cat("\nData vector (n=" %.% length(x$x) %.% "): " %.% paste(formatC(utils::head(x$x, 6)), collapse = ", ") %.% ".\n")
   }
   
   if (length(x$partition) > 6) {
-    cat("Partition has " %.% length(x$partition) %.% " points: " %.% paste(formatC(head(x$partition, 6)), collapse = ", ") %.% 
+    cat("Partition has " %.% length(x$partition) %.% " points: " %.% paste(formatC(utils::head(x$partition, 6)), collapse = ", ") %.% 
       ", ...\n")
   } else {
-    cat("Partition has " %.% length(x$partition) %.% " points: " %.% paste(formatC(head(x$partition, 6)), collapse = ", ") %.% 
+    cat("Partition has " %.% length(x$partition) %.% " points: " %.% paste(formatC(utils::head(x$partition, 6)), collapse = ", ") %.% 
       ".\n")
   }
 }
