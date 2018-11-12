@@ -7,8 +7,8 @@ test_that("Basic", {
   PV <- pvar(rnorm(10), 2)
   expect_that(PV, is_a('pvar'))
   expect_that(summary(PV), is_a('summary.pvar'))
-  expect_that(plot(PV), is_null())
- 
+  expect_null(plot(PV))
+  
   expect_that( pvar(rnorm(10), 0.5), is_a("pvar"))
   expect_that( pvar(rnorm(10), 1), is_a("pvar"))
   expect_that( pvar(rnorm(10), 2), is_a("pvar"))
@@ -23,8 +23,6 @@ test_that("Basic", {
     x = rbridge(1, 1000)
     expect_that(pvar(x, 2), is_identical_to(pvar(x, 2)))
   }
-  
-  
 })
 
 test_that("Exeptions", {

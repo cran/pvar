@@ -1,7 +1,7 @@
 \documentclass{article}
 
 %\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{The breath intro into the package}
+%\VignetteIndexEntry{The brief intro into the package}
 %\VignetteDepends{}
 %\VignetteKeywords{string, misc}
 %\VignettePackage{pvar}
@@ -55,7 +55,7 @@ There are formulated and proved a lot of the properties of $p$-variation.
 In addition, the comprehensive bibliography of $p$-variation is include.
 
 
-The core functions of the package is based on algorithm described in \cite{ButkusNorvaisa2014}.
+The core functions of the package is based on algorithm described in \cite{ButkusNorvaisa2018}.
 The calculation of $p$-variation was inspired by paper \cite{NorvaisaRackauskas2008}, where
 authors Norvai\v{s}a and Ra\v{c}kauskas presented
 necessary and sufficient conditions
@@ -64,10 +64,6 @@ $p$-variation norm. Based on the result of this paper, Ra\v{c}kaskas proposed
 the method of testing sample of multiple shift in mean. This test is also implemented in this package.
 
 
-It seams that up till \emph{pvar} package
-there were no software for $p$-variation calculus (if I am wrong,
-please, give me a note).
-The package \emph{pvar} is here to fill that hole.
 The algorithm is written in C++, therefore it is quite fast.
 It is worth noting, that \emph{pvar} package  could be used to calculate $p$-variation
 for any piecewise monotone functions and to investigate
@@ -89,7 +85,7 @@ summary(pv)
 @
 
 
-More over, the data and supreme partition could be illustrated with \emph{plot} function
+Moreover, the data and supreme partition could be illustrated with \emph{plot} function
 <<pvar_plot>>=
 plot(pv)
 @
@@ -169,10 +165,9 @@ plot(xtest)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \begin{thebibliography}{99}  
 
-% Mano straipnis
-% \bibitem{ButkusNorvaisa2014} 
-% V. Butkus, R. Norvai\v{s}a. The calculus of $p$-variation. Preprint. 
-
+% Musu stripsnis
+\bibitem{ButkusNorvaisa2018} 
+V. Butkus, R. Norvai\v{s}a. Lith Math J (2018). https://doi.org/10.1007/s10986-018-9414-3
 
 \bibitem{DudleyNorvaisa1998} 
 R. M. Dudley, R. Norvai\v{s}a. An Introduction to

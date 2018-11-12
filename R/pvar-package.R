@@ -9,7 +9,7 @@
 #' \tabular{ll}{
 #' Package: \tab pvar\cr
 #' Type: \tab Package\cr
-#' Version: \tab 2.2\cr
+#' Version: \tab 2.2.4\cr
 #' Date: \tab 2016-05-17\cr
 #' License: \tab GPL-2\cr
 #' Institution: \tab Vilnius University Faculty of Mathematics and Informatics \cr
@@ -49,17 +49,20 @@
 #' Special thanks to Rimas Norvaisa the supervisor of my studies.
 #' 
 #' @references
-#' [1] R. M. Dudley, R. Norvaisa. An Introduction to
+#' 
+#' [1] V. Butkus, R. Norvaisa. Lith Math J (2018). https://doi.org/10.1007/s10986-018-9414-3
+#' 
+#' [2] R. M. Dudley, R. Norvaisa. An Introduction to
 #' p-variation and Young Integrals, Cambridge, Mass., 1998.
 #' 
-#' [2] R. M. Dudley, R. Norvaisa. Differentiability of 
+#' [3] R. M. Dudley, R. Norvaisa. Differentiability of 
 #' Six Operators on Nonsmooth Functions and p-Variation, Springer Berlin Heidelberg, 
 #' Print ISBN 978-3-540-65975-4, Lecture Notes in Mathematics Vol. 1703, 1999.
 #' 
-#' [3] R. Norvaisa, A. Rackauskas. Convergence in law of partial sum processes in p-variation norm. 
+#' [4] R. Norvaisa, A. Rackauskas. Convergence in law of partial sum processes in p-variation norm. 
 #' Lth. Math. J., 2008., Vol. 48, No. 2, 212-227.   
 #' 
-#' [4] J. Qian. The p-variation of Partial Sum Processes and the Empirical Process. 
+#' [5] J. Qian. The p-variation of Partial Sum Processes and the Empirical Process. 
 #' The Annals of Probability, 1998, Vol. 26, No. 3, 1370-1383.
 #'
 #' @seealso

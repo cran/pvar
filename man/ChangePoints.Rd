@@ -24,4 +24,3 @@ cid <- ChangePoints(x)
 plot(x, type="l")
 points(time(x)[cid], x[cid], cex=0.5, col=2, pch=19)
 }
-

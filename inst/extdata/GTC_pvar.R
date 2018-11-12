@@ -41,26 +41,25 @@ x <- structure(c(0, -0.0740075184021381, -0.0670053233078347, -0.161930321876744
                 0.161087859716142, 0.308409067842321, 0.352895573070947, 0.213874214897239, 
                 0.145185536145645, 0.0113621373279049, -0.0473400636439312), .Tsp = c(0, 
                                                                         1, 100), class = "ts")
+GTC <- function(){
+  
+  arglist <- expand.grid(p=seq(0.5,5,0.5),LSI=seq(1,15,2))
+  arglist <- split(arglist, rownames(arglist))
+  caselist <- list()
+  for(i in seq_along(arglist)){
+    argsput <- as.list(arglist[[i]])
+    argsput$x <- x
+    argsput$TimeLabel <- seq_along(x)  
+    result=do.call("pvar", argsput)
+    caselist[[i]] <- list(input = argsput, output = result)
+    caselist[[i]]$summary <- summary(result)
+    caselist[[i]]$summary.print <- CaptureOutput(caselist[[i]]$summary, comment="", print=FALSE)
+    caselist[[i]]$output.print <- CaptureOutput(caselist[[i]]$output, comment="", print=FALSE)
+  }
+  
+  save(caselist, CaptureOutput, file="inst/extdata/caselist.RData")
 
-
-arglist <- expand.grid(p=seq(0.5,5,0.5),LSI=seq(1,15,2))
-arglist <- split(arglist, rownames(arglist))
-caselist <- list()
-for(i in seq_along(arglist)){
-  argsput <- as.list(arglist[[i]])
-  argsput$x <- x
-  argsput$TimeLabel <- seq_along(x)  
-  result=do.call("pvar", argsput)
-  caselist[[i]] <- list(input = argsput, output = result)
-  caselist[[i]]$summary <- summary(result)
-  caselist[[i]]$summary.print <- CaptureOutput(caselist[[i]]$summary, comment="", print=FALSE)
-  caselist[[i]]$output.print <- CaptureOutput(caselist[[i]]$output, comment="", print=FALSE)
 }
-
-
-save(caselist, CaptureOutput, file="inst/extdata/caselist.RData")
-
-
 
 
 

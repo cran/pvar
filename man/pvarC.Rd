@@ -26,4 +26,3 @@ This is a waking horse of this packages, nonetheless, users should
 not call this function directly (rather use \code{\link{pvar}}).
 }
 \keyword{internal}
-

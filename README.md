@@ -3,7 +3,9 @@ R package `pvar`
 
 This package deals with the $p$-variation of the sample. Nonetheless,
 it could be used for to calculate $p$-variation for arbitrary
-piecewise monotonic function as well. 
+piecewise monotonic function as well. See:
+
+https://link.springer.com/article/10.1007/s10986-018-9414-3#citeas
 
 If you intend to have use from this package, you need to be familiar with the topic.
 The formal definitions and reference into literature are given in vignette.

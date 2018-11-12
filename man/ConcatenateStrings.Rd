@@ -31,4 +31,3 @@ paste('The length of vector (', paste(x , sep='', collapse =','), ') is ', lengt
 \seealso{
 \code{\link{paste}}
 }
-

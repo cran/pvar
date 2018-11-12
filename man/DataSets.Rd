@@ -3,8 +3,8 @@
 \docType{data}
 \name{DataSets}
 \alias{DataSets}
-\alias{MeanCoef}
 \alias{PvarQuantileDF}
+\alias{MeanCoef}
 \alias{SdCoef}
 \title{Data sets of Monte-Carlo simulations results}
 \format{the \code{PvarQuantileDF} is a \code{data.frame} with fields \code{prob} an {Qaunt}. 
@@ -32,4 +32,3 @@ PvarBreakTest statistics (see \code{\link{getMean}}).
 \author{
 Vygantas Butkus <Vygantas.Butkus@gmail.com>
 }
-

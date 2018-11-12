@@ -48,4 +48,3 @@ par(op)
 \seealso{
 \code{\link{PvarBreakTest}},  \code{\link{rbridge}}
 }
-

@@ -25,4 +25,3 @@ This is an internal function, therefore, users should
 not call this function directly (rather use \code{\link{AddPvar}} or \code{pv1 + pv2}).
 }
 \keyword{internal}
-

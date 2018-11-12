@@ -10,9 +10,10 @@ PvarBreakTest(x, TimeLabel = as.vector(time(x)), alpha = 0.05,
   FullInfo = TRUE)
 
 \method{plot}{PvarBreakTest}(x, main1 = "Data",
-  main2 = "Bridge transformation", ylab1 = x$dname, ylab2 = "BridgeT("
-  \%.\% x$dname \%.\% ")", sub2 = NULL, col.PP = 3, cex.PP = 0.5,
-  col.BP = 2, cex.BP = 1, cex.DP = 0.5, ...)
+  main2 = "Bridge transformation", ylab1 = x$dname,
+  ylab2 = "BridgeT(" \%.\% x$dname \%.\% ")", sub2 = NULL,
+  col.PP = 3, cex.PP = 0.5, col.BP = 2, cex.BP = 1, cex.DP = 0.5,
+  ...)
 
 \method{summary}{PvarBreakTest}(object, ...)
 }
@@ -46,9 +47,9 @@ that saves all useful information. Otherwise only the statistics will by returne
 
 \item{cex.DP}{the cex of data points.}
 
-\item{object}{the object of the class \code{PvarBreakTest}.}
-
 \item{\dots}{further arguments, passed to \code{print}.}
+
+\item{object}{the object of the class \code{PvarBreakTest}.}
 }
 \value{
 If \code{FullInfo=TRUE} then function returns an object of the class \code{PvarBreakTest}. 
@@ -94,9 +95,6 @@ legend('topleft', c('sample', 'moving average (k='\%.\%k\%.\%')'),
 xtest <- PvarBreakTest(x)
 plot(xtest)
 }
-\author{
-Vygantas Butkus <Vygantas.Butkus@gmail.com>
-}
 \references{
 The test was proposed by A. Rackaskas. The test is based on the results given in the flowing article
 
@@ -108,4 +106,6 @@ Tests statistics is  \code{\link{pvar}} of the data \code{BridgeT(x)}(see  \code
 The critical value and the approximate  p-value of the test might by found by functions
 \code{\link{PvarQuantile}} and  \code{\link{PvarPvalue}}.
 }
-
+\author{
+Vygantas Butkus <Vygantas.Butkus@gmail.com>
+}
