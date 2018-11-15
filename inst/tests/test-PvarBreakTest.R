@@ -5,7 +5,7 @@ test_that("Basic", {
   N = 1000
   x = rnorm(N) + rep(0:1, each=N/2)
   Test = PvarBreakTest(x)
-  plot(Test)
+  # plot(Test)
   
   expect_that(Test, is_a('PvarBreakTest'))
   expect_that(summary(Test), is_a('PvarBreakTest'))

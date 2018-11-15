@@ -57,7 +57,7 @@ GTC <- function(){
     caselist[[i]]$output.print <- CaptureOutput(caselist[[i]]$output, comment="", print=FALSE)
   }
   
-  save(caselist, CaptureOutput, file="inst/extdata/caselist.RData")
+  # save(caselist, CaptureOutput, file="inst/extdata/caselist.RData")
 
 }
 

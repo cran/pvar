@@ -16,7 +16,7 @@ Moreover, the package includes one example of practical application of the p-var
 \tabular{ll}{
 Package: \tab pvar\cr
 Type: \tab Package\cr
-Version: \tab 2.2.4\cr
+Version: \tab 2.2.5\cr
 Date: \tab 2016-05-17\cr
 License: \tab GPL-2\cr
 Institution: \tab Vilnius University Faculty of Mathematics and Informatics \cr
