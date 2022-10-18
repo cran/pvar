@@ -341,7 +341,7 @@ void PvarByMerging(PrtList& prt,  const double& p, PrtList::iterator a, PrtList:
     ++v_IL; 
     ++b_IL; 
     ++b_IL; 
-    while((b_IL!=IterList.end()) & (v_IL!=IterList.end())){
+    while((b_IL!=IterList.end()) && (v_IL!=IterList.end())){
       Merge2GoodInt(prt, p, *a_IL, *v_IL, *b_IL);
       a_IL = IterList.erase(v_IL); 
       v_IL = b_IL = a_IL;
@@ -588,7 +588,7 @@ List AddPvar(List PV1, List PV2, bool AddIfPossible=true){
       }
     }
     // checking last point (it always significants, so if pvdiff=0 then the one before last is insignificant)
-    if((prt1.size()>2) & ((*it_prt).pvdiff==0)){  
+    if((prt1.size()>2) && ((*it_prt).pvdiff==0)){  
       --it_prt;
       it_prt = prt1.erase(it_prt);
     }

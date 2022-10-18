@@ -237,7 +237,9 @@ as.list.pvar <- function(x, ...) {
 #' ### AddPvar(PV1, PV2) is eqivavalent to PV1 + PV2
 #' IsEqualPvar(AddPvar(PV1, PV2), PV1 + PV2)
 AddPvar <- function(PV1, PV2, AddIfPossible = TRUE) {
-  if (class(PV1) != "pvar" | class(PV2) != "pvar") {
+  
+  
+  if (!inherits(PV1, "pvar") | !inherits(PV2, "pvar")) {
     stop("In `AddPvar` function, PV1 and PV2 must be of the class `pvar`")
   }
   if (PV1$p != PV2$p) {

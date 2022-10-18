@@ -1,7 +1,7 @@
 Package: pvar
-Version: 2.2.5
+Version: 2.2.7
 Title: Calculation and Application of p-Variation
-Date: 2018-11-12
+Date: 2022-10-18
 Author: Vygantas Butkus
 Maintainer: Vygantas Butkus <Vygantas.Butkus@gmail.com>
 Description: The calculation of p-variation of the finite sample data. 
@@ -15,6 +15,6 @@ VignetteBuilder: knitr
 License: GPL-2
 RoxygenNote: 6.1.1
 NeedsCompilation: yes
-Packaged: 2018-11-14 18:13:52 UTC; vygantas
+Packaged: 2022-10-18 04:28:51 UTC; vygantas
 Repository: CRAN
-Date/Publication: 2018-11-15 08:20:02 UTC
+Date/Publication: 2022-10-18 07:40:06 UTC
